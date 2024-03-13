@@ -1,0 +1,21 @@
+.textBox {
+	width: 100%;
+	height: 100%;
+	overflow-y: scroll;
+}
+
+.typed {
+	color: #F8F8F2;
+}
+
+.typedWrong {
+	color: #FF5555;
+}
+
+.didntType {
+	color: #6272A4;
+}
+
+.typedExtra {
+	color: #F1FA8C;
+}

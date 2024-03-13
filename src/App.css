@@ -1,8 +1,21 @@
-div {
-  width: 70%;
-  margin: 0 auto;
+.appContainer {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #282A36;
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.6rem;
 }
 
-input {
-  opacity: 0;
+.center {
+	width: 85vw;
+  height: 50vh;
+  transform: translateY(-10%);
+}
+
+p {
+	color: #BD93F9;
 }
