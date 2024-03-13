@@ -15,6 +15,9 @@ const TestingText = ({
 	const inputRef = useRef(null);
 
 	const handleKeyDown = (e) => {
+		if (!timerOn && inputText.length !== 0) {
+			return;
+		}
 		if (e.key === "Backspace") {
 			setInputText(inputText.slice(0, inputText.length - 1));
 		} else if (/^[a-zA-Z .,]$/.test(e.key)) {
