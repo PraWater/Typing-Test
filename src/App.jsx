@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { paragraph } from "txtgen";
-import "./App.css";
 import TestingText from "./components/TestingText/TestingText";
 
 function App() {
@@ -37,9 +36,9 @@ function App() {
 	}
 
 	return (
-		<div className="appContainer">
-			<div className="center">
-				<p>{time}</p>
+		<div className="grid place-items-center bg-background h-dvh w-screen font-mono font-normal text-2xl">
+			<div className="w-10/12 h-1/2 overflow-hidden flex flex-col justify-start">
+				<p className="text-purple">{time}</p>
 				<TestingText
 					timerOn={timerOn}
 					timerStart={timerStart}

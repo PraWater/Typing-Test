@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
 import Modal from "../Modal/Modal";
-import "./testingText.css";
 
 const TestingText = ({
 	timerStart,
@@ -20,7 +19,7 @@ const TestingText = ({
 		}
 		if (e.key === "Backspace") {
 			setInputText(inputText.slice(0, inputText.length - 1));
-		} else if (/^[a-zA-Z .,]$/.test(e.key)) {
+		} else if (/^[a-zA-Z .,!;:-?]$/.test(e.key)) {
 			if (!timerOn && inputText.length === 0) {
 				timerStart();
 			}
@@ -43,7 +42,7 @@ const TestingText = ({
 				if (index < inputText.length) {
 					if (char === inputText[index]) {
 						return (
-							<span key={index} className="typed">
+							<span key={index} className="text-foreground">
 								{char}
 							</span>
 						);
@@ -51,30 +50,29 @@ const TestingText = ({
 						++cnt;
 						if (char === " ") {
 							return (
-								<span key={index} className="typedExtra">
+								<span key={index} className="text-yellow">
 									{inputText[index] + " "}
 								</span>
 							);
 						}
 						return (
-							<span key={index} className="typedWrong">
+							<span key={index} className="text-red">
 								{char}
 							</span>
 						);
 					}
 				} else if (index === inputText.length) {
 					return (
-						<span
-							key={index}
-							className="didntType"
-							style={{ textDecoration: "underline" }}
-						>
-							{char}
-						</span>
+						// <span
+						// 	key={index}
+						// 	className="before:block before:absolute before:h-8 before:w-0.5 before:bg-purple relative inline-block"
+						// >
+						<span className="underline relative text-comment">{char}</span>
+						// </span>
 					);
 				} else {
 					return (
-						<span key={index} className="didntType">
+						<span key={index} className="text-comment">
 							{char}
 						</span>
 					);
@@ -87,26 +85,17 @@ const TestingText = ({
 	const reset = () => {
 		setInputText("");
 		setMistakes(0);
-		setText(
-			ogText.split("").map((char, index) => {
-				return (
-					<span key={index} style={{ color: "grey" }}>
-						{char}
-					</span>
-				);
-			})
-		);
 		inputRef.current.focus();
 		timerReset();
 	};
 
 	return (
 		<>
-			<div className="textBox" onClick={handleClick}>
+			<div className="w-full h-full overflow-y-scroll" onClick={handleClick}>
 				{text}
 			</div>
 			<input
-				style={{ opacity: 0 }}
+				className="opacity-0"
 				type="text"
 				ref={inputRef}
 				onKeyDown={handleKeyDown}
