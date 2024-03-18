@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { paragraph } from "txtgen";
 import TestingText from "./components/TestingText/TestingText";
+import generateText from "./utils/generateText";
 
 function App() {
 	const [time, setTime] = useState(30);
 	const [timerOn, setTimerOn] = useState(false);
 	const [modalOpen, setModalOpen] = useState(false);
-	const [text, setText] = useState(paragraph());
+	const [text, setText] = useState(generateText());
 	let timer;
 
 	function handleTime() {
@@ -32,7 +32,7 @@ function App() {
 		setTime(30);
 		setTimerOn(false);
 		setModalOpen(false);
-		setText(paragraph());
+		setText(generateText());
 	}
 
 	return (

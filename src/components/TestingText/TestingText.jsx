@@ -48,13 +48,13 @@ const TestingText = ({
 						);
 					} else {
 						++cnt;
-						if (char === " ") {
-							return (
-								<span key={index} className="text-yellow">
-									{inputText[index] + " "}
-								</span>
-							);
-						}
+						// if (char === " ") {
+						// 	return (
+						// 		<span key={index} className="text-yellow">
+						// 			{inputText[index] + " "}
+						// 		</span>
+						// 	);
+						// }
 						return (
 							<span key={index} className="text-red">
 								{char}
