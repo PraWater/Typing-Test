@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import Modal from "../Modal/Modal";
+import { useEffect, useRef, useState } from "react";
+import Modal from "./Modal";
 
 const TestingText = ({
 	timerStart,
@@ -82,12 +82,13 @@ const TestingText = ({
 		setMistakes(cnt);
 	}, [inputText]);
 
-	const reset = () => {
+	function reset() {
 		setInputText("");
 		setMistakes(0);
 		inputRef.current.focus();
-		timerReset();
-	};
+		const wpm = Math.round(((inputText.length - mistakes) * 2) / 5);
+		timerReset(wpm);
+	}
 
 	return (
 		<>
