@@ -48,13 +48,6 @@ const TestingText = ({
 						);
 					} else {
 						++cnt;
-						// if (char === " ") {
-						// 	return (
-						// 		<span key={index} className="text-yellow">
-						// 			{inputText[index] + " "}
-						// 		</span>
-						// 	);
-						// }
 						return (
 							<span key={index} className="text-red">
 								{char}
@@ -63,12 +56,9 @@ const TestingText = ({
 					}
 				} else if (index === inputText.length) {
 					return (
-						// <span
-						// 	key={index}
-						// 	className="before:block before:absolute before:h-8 before:w-0.5 before:bg-purple relative inline-block"
-						// >
-						<span className="underline relative text-comment">{char}</span>
-						// </span>
+						<span key={index} className="underline relative text-comment">
+							{char}
+						</span>
 					);
 				} else {
 					return (
@@ -101,8 +91,6 @@ const TestingText = ({
 				ref={inputRef}
 				onKeyDown={handleKeyDown}
 			/>
-			{/* Count = {inputText.length} Mistakes = {mistakes} Words typed ={" "}
-			{(inputText.length - mistakes) / 5} */}
 			{modalOpen && (
 				<Modal
 					wpm={Math.round(((inputText.length - mistakes) * 2) / 5)}
